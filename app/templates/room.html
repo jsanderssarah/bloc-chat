@@ -14,7 +14,7 @@
 
 <div class="messages">
     <div class="messages-header">
-        <h3>{{ room.currentRoom.name }}</h3>
+        <h3>{{ room.currentRoom }}</h3>
     </div>
     <div class="messages-body" ng-repeat="message in room.messages">
         <div class="username">{{ message.username }}</div>
@@ -23,8 +23,9 @@
     </div>
     <div class="message-field">
         
-        <input type="text" placeholder="Type your message here..." class="message-box" ng-model="home.newMessage.content">
-        <button class="btn-new-message" type="button" ng-click="home.sendMessage()">Send message</button>
+        <input type="text" placeholder="Type your message here..." class="message-box" ng-model="room.newMessage.content">
+        <!--ngModel directive binds an input , select , textarea (or custom form control) to a property on the scope using NgModelController, which is created and exposed by this directive. ngModel is responsible for: Binding the view into the model, which other directives such as input , textarea or select require.-->
+        <button class="btn-new-message" type="button" ng-click="room.sendMessage()">Send message</button>
     
     </div>
 </div>

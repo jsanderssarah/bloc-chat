@@ -11,11 +11,18 @@
                 size: 'sm',
                 controller: 'ModalCtrl as modal'
             });
-        }
+        };
+        
         room.showRoom = function(room) {
             room.currentRoom = room;
             room.messages = Message.getByRoomId(room.currentRoom.$id);
-        }
+        };
+        
+        room.sendMessage = function(newMessage) {
+            room.newMessage.roomId = room.currentRoom.$id;
+            room.newMessage.currentUser = room.currentUser;
+            Message.send(room.newMessage);
+        };
         
     }
     
