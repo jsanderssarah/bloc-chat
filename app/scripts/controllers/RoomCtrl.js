@@ -1,6 +1,7 @@
 (function() {
-    function RoomCtrl(Room, $uibModal, $cookies) {
+    function RoomCtrl(Room, Message, $uibModal, $cookies) {
         var room = this;
+        room.currentRoom = null;
         room.rooms = Room.all;
         room.currentUser = $cookies.get('blocChatCurrentUser');
         
@@ -11,10 +12,14 @@
                 controller: 'ModalCtrl as modal'
             });
         }
+        room.showRoom = function(room) {
+            room.currentRoom = room;
+            room.messages = Message.getByRoomId(room.currentRoom.$id);
+        }
         
     }
     
     angular
         .module('blocChat')
-        .controller('RoomCtrl', ['Room', '$uibModal', '$cookies', RoomCtrl]);
+        .controller('RoomCtrl', ['Room', 'Message', '$uibModal', '$cookies', RoomCtrl]);
 })();
