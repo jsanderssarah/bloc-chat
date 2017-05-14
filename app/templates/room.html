@@ -1,0 +1,30 @@
+<div class="navigation">
+    <div class="navigation-header">
+        <h3 class="navigation-title">Bloc Chat</h3>
+        <span>
+            <button type="button" class="new-room" ng-click="room.newRoom()">New Room</button>
+        </span>    
+    </div>
+    <div class="navigation-body" ng-repeat="room in room.rooms">
+        <p class="room-name" ng-click="room.showRoom(room)">{{ room.$value }}</p>
+    </div>
+</div>
+
+
+
+<div class="messages">
+    <div class="messages-header">
+        <h3>{{ room.currentRoom.name }}</h3>
+    </div>
+    <div class="messages-body" ng-repeat="message in home.messages">
+        <div class="username">{{ message.username }}</div>
+        <div class="timestamp">{{ message.sentAt | date : "shortTime" }}</div>
+        <div class="user-message">{{ message.content }}</div>
+    </div>
+    <div class="message-field">
+        
+        <input type="text" placeholder="Type your message here..." class="message-box" ng-model="home.newMessage.content">
+        <button class="btn-new-message" type="button" ng-click="home.sendMessage()">Send message</button>
+    
+    </div>
+</div>
