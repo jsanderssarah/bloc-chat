@@ -4,7 +4,11 @@
         cookie.close = function () {
             $uibModalInstance.dismiss();
         };
-        
+        cookie.createUsername = function (username) {
+            console.log('Hello');
+            $cookies.put('blocChatCurrentUser', username);
+            $uibModalInstance.close();
+        };
        
        
     }

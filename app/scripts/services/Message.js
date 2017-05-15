@@ -12,21 +12,22 @@
 			return $firebaseArray(ref.orderByChild("roomId").equalTo(roomId));
 		};
 		
-        Message.send = function (newMessage) {
-            messages.$add(newMessage);
-            newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
-        }
+        //Message.send = function (newMessage) {
+            //messages.$add(newMessage);
+            //newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
+        //}
         
-        //Message.send = function(newMessage, roomID) {
-				//Message = {
-					//username: $cookies.get('blocChatCurrentUser'),
-					//content: newMessage,
-					//sentAt: getTime(),
-					//roomID: roomID
-				//}
-				//ref.$add(Message);
-			//}
-		//};
+        Message.send = function(newMessage, roomID) {
+            var xtime = getTime();
+            var xuser = $cookies.get('blocChatCurrentUser');
+            var messageObj = {
+					username: xuser,
+					content: newMessage,
+					sentAt: xtime,
+					roomID: roomID
+				};
+            messages.$add(messageObj);
+		};
 		
         return Message;
 		

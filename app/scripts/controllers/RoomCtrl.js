@@ -4,7 +4,7 @@
         room.currentRoom = null;
         room.rooms = Room.all;
         room.currentUser = $cookies.get('blocChatCurrentUser');
-        
+        room.newMessage = {};
         room.newRoom = function() {
             $uibModal.open({
                 templateUrl: '/templates/modal.html',
@@ -14,6 +14,7 @@
         };
         
         room.showRoom = function(room) {
+            console.log(Hello);
             room.currentRoom = room;
             room.messages = Message.getByRoomId(room.currentRoom.$id);
         };

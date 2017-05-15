@@ -7,6 +7,6 @@
             <input type="text" id="username">
     </div>
     <div class="modal-footer">
-        <button class="btn-new" type="button" ng-click="cookie.createUsername()" ng-disabled="cookie.username == null">Create user</button>
+        <button class="btn-new" type="button" ng-model="username" ng-click="cookie.createUsername(username)">Create user</button>
     </div>
 </section>
