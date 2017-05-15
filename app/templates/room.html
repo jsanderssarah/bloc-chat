@@ -18,7 +18,7 @@
     </div>
     <div class="messages-body" ng-repeat="message in room.messages">
         <div class="username">{{ message.username }}</div>
-        <div class="timestamp">{{ message.sentAt | date : "shortTime" }}</div>
+        <div class="timestamp">{{ message.sentAt }}</div>
         <div class="user-message">{{ message.content }}</div>
     </div>
     <div class="message-field">

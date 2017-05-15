@@ -9,7 +9,7 @@
     height: 100%;
     background-color: rgb(148, 247, 150)
     z-index: 1;
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .navigation .room-name:hover {
@@ -33,6 +33,7 @@
     z-index: 2;
     overflow: scroll;
 }
+
 .messages-body{
     padding-left: 20px;
 }

@@ -1,5 +1,5 @@
 (function() {
-    function RoomCtrl(Room, Message, $uibModal, $cookies) {
+    function RoomCtrl (Room, Message, $uibModal, $cookies) {
         var room = this;
         room.currentRoom = null;
         room.rooms = Room.all;

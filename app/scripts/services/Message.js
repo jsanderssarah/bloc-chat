@@ -2,14 +2,21 @@
 	function Message($firebaseArray, $cookies) {
 		var Message = { };
 		
-		var ref = firebase.database().ref().child("Messages");
-		Message.messages = $firebaseArray(ref);
+		var ref = firebase.database().ref().child("messages");
+		var messages = $firebaseArray(ref);
 		
+        Message.all = messages;
+        
         //filter messages by roomId
 		Message.getByRoomId = function(roomId) {
 			return $firebaseArray(ref.orderByChild("roomId").equalTo(roomId));
 		};
 		
+        //Message.send = function (newMessage) {
+            //messages.$add(newMessage);
+            //newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
+        //}
+        
         Message.send = function(newMessage, roomID) {
 				Message = {
 					username: $cookies.get('blocChatCurrentUser'),
