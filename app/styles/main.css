@@ -27,7 +27,7 @@
     position: fixed;
     top: 0px;
     left: 250px;
-    width: 82%;
+    width: 79%;
     height: 100%;
     background-color: rgba(100, 5, 200, .10);
     z-index: 2;
@@ -63,5 +63,5 @@
 }
 
 .message-box {
-    width: 900px;
+    width: 880px;
 }
