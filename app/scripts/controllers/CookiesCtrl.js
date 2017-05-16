@@ -10,7 +10,6 @@
             $uibModalInstance.close();
         };
        
-       
     }
 
     angular

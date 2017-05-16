@@ -13,14 +13,13 @@
             });
         };
         
-        room.showRoom = function(room) {
-            console.log(Hello);
-            room.currentRoom = room;
+        room.showRoom = function(rm) {
+            room.currentRoom = rm;
             room.messages = Message.getByRoomId(room.currentRoom.$id);
         };
         
         room.sendMessage = function(newMessage) {
-            room.newMessage.roomId = room.currentRoom.$id;
+            room.newMessage.roomId = room.currentRoom.roomId;
             room.newMessage.currentUser = room.currentUser;
             Message.send(room.newMessage);
         };
