@@ -19,8 +19,10 @@
         };
         
         room.sendMessage = function(newMessage) {
-            room.newMessage.roomId = room.currentRoom.roomId;
+            room.newMessage.roomId = room.currentRoom.$id;
             room.newMessage.currentUser = room.currentUser;
+            console.log(room.currentUser);
+            console.log(room.currentRoom.$id);
             Message.send(room.newMessage);
         };
         

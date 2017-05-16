@@ -17,8 +17,9 @@
             //newMessage.sentAt = firebase.database.ServerValue.TIMESTAMP;
         //}
     
-        Message.send = function(newMessage, roomId) {
-            var xtime = function getTime() {
+        Message.send = function(newMessage) {
+            messages.$add(newMessage);
+            var getTime = function () {
                 var date = new Date();
                 var h = date.getHours();
                 var m = date.getMinutes();
@@ -36,14 +37,7 @@
                 }
                 return h + ":" + m + " " + dayNight;
             };
-            var xuser = $cookies.get('blocChatCurrentUser');
-            var messageObj = {
-					username: xuser,
-					content: newMessage,
-					sentAt: xtime,
-					roomID: roomID
-            };
-            messages.$add(messageObj);
+            newMessage.sentAt = getTime();    
 		};
     
         return Message;

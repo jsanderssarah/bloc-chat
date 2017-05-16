@@ -6,7 +6,7 @@
         };
         cookie.createUsername = function (username) {
             console.log('Hello');
-            $cookies.put('blocChatCurrentUser', username);
+            $cookies.put('blocChatCurrentUser', cookie.username);
             $uibModalInstance.close();
         };
        
